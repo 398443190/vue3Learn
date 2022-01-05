@@ -15,30 +15,17 @@
   </div>
 </template>
 
-<script lang="ts">
-import dayjs from 'dayjs'
-import { defineComponent, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import LayoutHeader from '../header/index.vue'
-export default defineComponent({
-  name: 'base-layout',
-  components: { LayoutHeader },
-  setup() {
-    /**
-     * footer 相关
-     */
-    const route = useRoute()
-    // 获取当前年份
-    const curYear = ref(dayjs().year())
+<script lang="ts" setup>
+import dayjs from "dayjs";
+import { ref } from "vue";
+import { useRoute } from "vue-router";
+import LayoutHeader from "../header/index.vue";
 
-    return {
-      route,
-      curYear,
-    }
-  },
-})
+const route = useRoute();
+// 获取当前年份
+const curYear = ref(dayjs().year());
 </script>
 
 <style lang="less">
-@import './index.less';
+@import "./index.less";
 </style>

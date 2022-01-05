@@ -42,13 +42,13 @@
   </div>
 </template>
 
-<script lang="ts">
+
+<script lang="ts" setup>
+
 import { defineComponent, onUnmounted, ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import headerMenu from '../../consts/headerMenu'
-export default defineComponent({
-  name: 'header-layout',
-  setup() {
+
     /**
      * title 相关
      */
@@ -100,17 +100,6 @@ export default defineComponent({
       }
     }
 
-    return {
-      handlePushHome,
-      headerMenu,
-      activeIndex,
-      handleSelect,
-      searchWord,
-      themeSwitch,
-      handleThemeChange,
-    }
-  },
-})
 </script>
 
 <style lang="less">

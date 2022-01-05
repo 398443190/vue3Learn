@@ -11,23 +11,23 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import http from '../../api/intercept'
+<script lang="ts" setup>
+import { defineComponent, onMounted } from "vue";
+import http from "../../api/intercept";
+const fetchWelcomeWord = async () => {
+  const res = await http.get("welcome");
+  console.log(res);
+  console.log(333);
+};
+fetchWelcomeWord();
+console.log(2222);
 
-export default defineComponent({
-  name: 'welcome',
-
-  setup() {
-    const fetchWelcomeWord = async () => {
-      const res = await http.get('welcome')
-      console.log(res)
-    }
-    fetchWelcomeWord()
-  },
+onMounted(()=>{
+  console.log(1111)
 })
+
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import url("./index.less");
 </style>
