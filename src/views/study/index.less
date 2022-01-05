@@ -1,0 +1,107 @@
+.study {
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+  .decoration {
+    width: 100%;
+    height: 100%;
+    flex: 2;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .decoration-chart {
+      width: 100%;
+      height: 48%;
+      border: 1px solid var(--border-color);
+
+      :deep(.apexcharts-menu) {
+        background: var(--bg-color);
+        border: 1px solid var(--bg-color);
+
+        .apexcharts-menu-item {
+          color: var(--text-color);
+        }
+      }
+
+      :deep(.apexcharts-tooltip) {
+        color: var(--text-color);
+        background-color: var(--bg-color);
+      }
+    }
+
+    .decoration-calendar {
+      width: 100%;
+      height: 48%;
+      border: 1px solid var(--border-color);
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .el-calendar {
+        background-color: var(--bg-color);
+
+        :deep(.el-calendar__title) {
+          color: var(--text-color);
+        }
+
+        :deep(.el-button) {
+          color: var(--text-color);
+          background-color: var(--bg-color);
+        }
+        :deep(.el-button:hover) {
+          background-color: var(--calendar-bg-color);
+        }
+
+        :deep(.el-calendar__body) {
+          padding: 12px 20px;
+
+          th {
+            color: var(--text-color);
+          }
+
+          .el-calendar-table td.is-today {
+            color: #388bfc;
+          }
+
+          .is-selected {
+            background-color: var(--calendar-bg-color);
+            color: #388bfc;
+          }
+
+          .el-calendar-day {
+            height: 37px;
+          }
+
+          .el-calendar-day:hover {
+            background-color: var(--calendar-bg-color);
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    height: 100%;
+    flex: 3;
+    overflow-y: scroll;
+    border: 1px solid var(--border-color);
+
+    .content-item {
+      padding-right: 40px;
+
+      :deep(.el-divider__text) {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+    }
+
+    .el-backtop {
+      background-color: var(--backtop-color);
+      color: var(--backtop-text-color);
+    }
+  }
+}
