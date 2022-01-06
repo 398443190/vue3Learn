@@ -2,11 +2,12 @@
  * 创建实例, 添加拦截
  */
 
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { Axios, AxiosRequestConfig, AxiosResponse } from 'axios'
 import storage from '../utils/storage'
 import { get } from 'lodash'
 
 import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 const router = useRouter()
 
 // 创建 axios 实例
@@ -33,6 +34,10 @@ const errorHandler = (error: any) => {
       break
     case 404:
       error.message = `请求地址出错: ${error.response.config.url}`
+      ElMessage({
+        message: `请求地址出错: ${error.response.config.url}`,
+        type: 'error',
+      })
       break
     case 408:
       error.message = '请求超时'
@@ -65,7 +70,8 @@ const errorHandler = (error: any) => {
 request.interceptors.request.use((config: AxiosRequestConfig) => {
   // 如果 token 存在
   // 让每个请求携带自定义 token
-  config.headers.Authorization = storage().get('ACCESS_TOKEN')
+  // config.headers.Authorization = storage().get('ACCESS_TOKEN')
+  config.headers!.Authorization = storage().get('ACCESS_TOKEN')
   return config
 }, errorHandler)
 

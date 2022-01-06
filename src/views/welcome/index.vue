@@ -19,7 +19,7 @@ const fetchWelcomeWord = async () => {
   console.log(res);
   console.log(333);
 };
-fetchWelcomeWord();
+// fetchWelcomeWord();
 console.log(2222);
 
 onMounted(()=>{

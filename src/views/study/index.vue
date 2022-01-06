@@ -122,7 +122,7 @@ const calendarVal = ref<Date>(new Date());
 /**
  * content
  */
-const count = ref<number>(50);
+const count = ref<number>(20);
 </script>
 
 <style lang="less" scoped>

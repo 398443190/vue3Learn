@@ -20,10 +20,15 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@element-plus/icons@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmmirror.com/@element-plus/icons/download/@element-plus/icons-0.0.11.tgz#9b187c002774548b911850d17fa5fc2f9a515f57"
-  integrity sha1-mxh8ACd0VIuRGFDRf6X8L5pRX1c=
+"@ctrl/tinycolor@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
+  integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
+
+"@element-plus/icons-vue@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@element-plus/icons-vue/-/icons-vue-0.2.4.tgz#dadcf72f0cea53dc83b7b7db80e1418716d7b02c"
+  integrity sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==
 
 "@emmetio/abbreviation@^2.2.2":
   version "2.2.2"
@@ -44,10 +49,10 @@
   resolved "https://registry.yarnpkg.com/@emmetio/scanner/-/scanner-1.0.0.tgz#065b2af6233fe7474d44823e3deb89724af42b5f"
   integrity sha512-8HqW8EVqjnCmWXVpqAOZf+EGESdkR27odcMMMGefgKXtar00SoYNSryGv//TELI4T3QFsECo78p+0lmalk/CFA==
 
-"@popperjs/core@^2.4.4":
-  version "2.11.0"
-  resolved "https://registry.npmmirror.com/@popperjs/core/download/@popperjs/core-2.11.0.tgz#6734f8ebc106a0860dff7f92bf90df193f0935d7"
-  integrity sha512-zrsUxjLOKAzdewIDRWy9nsV1GQsKBCWaGwsZQlCgr6/q+vjyZhFgqedLfFBuI9anTPEUT4APq9Mu0SZBTzIcGQ==
+"@popperjs/core@^2.10.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
+  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
 
 "@types/json-schema@^7.0.8":
   version "7.0.9"
@@ -231,6 +236,21 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.26.tgz#7acd1621783571b9a82eca1f041b4a0a983481d9"
   integrity sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==
 
+"@vueuse/core@^7.3.0":
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-7.5.2.tgz#96a46ebc1e64e14a0c0e265eceed2c4e7e5f4d9e"
+  integrity sha512-Y9bdJ7pTP6sckO2qbyfqm2fCsADCWwVck5ABimlnhMkuOZ2qq99ee6ABpc8EFCA2fdYf8DbedTNvJ2u7g+7Z7A==
+  dependencies:
+    "@vueuse/shared" "7.5.2"
+    vue-demi "*"
+
+"@vueuse/shared@7.5.2":
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-7.5.2.tgz#eec2e8f3d4202cd53a06e75be5005fd2b4465214"
+  integrity sha512-sq006pazeTU2EcjEIitCkaN3MpUaTk39/WKDowxqBA6y8HwvclETIJsKJdpbL88tc+w2WmbcurWps4AJm5R77A==
+  dependencies:
+    vue-demi "*"
+
 acorn@^7.1.1:
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
@@ -269,10 +289,10 @@ assert-never@^1.2.1:
   resolved "https://registry.yarnpkg.com/assert-never/-/assert-never-1.2.1.tgz#11f0e363bf146205fb08193b5c7b90f4d1cf44fe"
   integrity sha512-TaTivMB6pYI1kXwrFlEhLeGfOqoDNdTxjCdwRfFFkEA30Eu+k48W34nlok2EYWJfFFzqaEmichdNM7th6M5HNw==
 
-async-validator@^3.4.0:
-  version "3.5.2"
-  resolved "https://registry.npmmirror.com/async-validator/download/async-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
-  integrity sha1-aOhmqWgk6LJpT/eoMcGiXETV5QA=
+async-validator@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-4.0.7.tgz#034a0fd2103a6b2ebf010da75183bec299247afe"
+  integrity sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==
 
 axios@^0.24.0:
   version "0.24.0"
@@ -355,9 +375,9 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
   integrity sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==
 
-dayjs@1.x:
+dayjs@^1.10.7:
   version "1.10.7"
-  resolved "https://registry.npmmirror.com/dayjs/download/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
   integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
 debug@^3.2.6:
@@ -402,19 +422,20 @@ domutils@^2.8.0:
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
 
-element-plus@^1.0.2-beta.28:
-  version "1.0.2-beta.71"
-  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.0.2-beta.71.tgz#148f16d5a0a800549989f7869bbf4d656c652d36"
-  integrity sha512-tlfbRORIav8gJcIpjZI5F6aJIVHIaDuGO6/vKu43lgYq4JS2JPNRTjvrSE2p4f5xLfaFNfOWjCS3sybXLfMg8g==
+element-plus@^1.3.0-beta.1:
+  version "1.3.0-beta.1"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.3.0-beta.1.tgz#4df67fcedb0c13d14c9f54eea7b739109f5df49f"
+  integrity sha512-q3vMaKElPpuSTeIF7kuDmMOE+N1YVCCIG3fshXpz6qgjnxPbgZumVM0qGfhr8DTu9JxRbBoDok49dqtX/BWn3w==
   dependencies:
-    "@element-plus/icons" "^0.0.11"
-    "@popperjs/core" "^2.4.4"
-    async-validator "^3.4.0"
-    dayjs "1.x"
-    lodash "^4.17.20"
-    mitt "^2.1.0"
-    normalize-wheel "^1.0.1"
-    resize-observer-polyfill "^1.5.1"
+    "@ctrl/tinycolor" "^3.4.0"
+    "@element-plus/icons-vue" "^0.2.4"
+    "@popperjs/core" "^2.10.2"
+    "@vueuse/core" "^7.3.0"
+    async-validator "^4.0.7"
+    dayjs "^1.10.7"
+    lodash "^4.17.21"
+    memoize-one "^6.0.0"
+    normalize-wheel-es "^1.1.1"
 
 emmet@^2.3.0:
   version "2.3.5"
@@ -788,9 +809,9 @@ loader-utils@^2.0.0:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
-lodash@^4.17.20:
+lodash@^4.17.21:
   version "4.17.21"
-  resolved "https://registry.npmmirror.com/lodash/download/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 lru-cache@^6.0.0:
@@ -815,6 +836,11 @@ make-dir@^2.1.0:
     pify "^4.0.1"
     semver "^5.6.0"
 
+memoize-one@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
+  integrity sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==
+
 mime@^1.4.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
@@ -824,11 +850,6 @@ minimist@^1.2.5:
   version "1.2.5"
   resolved "https://registry.npm.taobao.org/minimist/download/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
-
-mitt@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmmirror.com/mitt/download/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
-  integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
 
 ms@^2.1.1:
   version "2.1.3"
@@ -859,10 +880,10 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.npm.taobao.org/normalize-path/download/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha1-Dc1p/yOhybEf0JeDFmRKA4ghamU=
 
-normalize-wheel@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/normalize-wheel/download/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
-  integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
+normalize-wheel-es@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/normalize-wheel-es/-/normalize-wheel-es-1.1.1.tgz#a8096db6a56f94332d884fd8ebeda88f2fc79569"
+  integrity sha512-157VNH4CngrcsvF8xOVOe22cwniIR3nxSltdctvQeHZj8JttEeOXffK28jucWfWBXs0QNetAumjc1GiInnwX4w==
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -1034,11 +1055,6 @@ request-light@^0.5.4:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/request-light/-/request-light-0.5.6.tgz#d36eb9b1e574fed1d261414722261a1148db3c2e"
   integrity sha512-mIfRkYujBF6qQQi+uJGHFzYD2P7WwfIMyJ3/DcTtOFB3iypwIVOXmsr3RMnFwTJRVcYLLZdjkIx43E8Zn2hRng==
-
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npm.taobao.org/resize-observer-polyfill/download/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
 
 resolve@^1.15.1, resolve@^1.20.0:
   version "1.20.0"
@@ -1310,6 +1326,11 @@ vue-cli-plugin-element-plus@~0.0.13:
   version "0.0.13"
   resolved "https://registry.npm.taobao.org/vue-cli-plugin-element-plus/download/vue-cli-plugin-element-plus-0.0.13.tgz#da829776373aad4269fc23b57bb3aa043bc67744"
   integrity sha1-2oKXdjc6rUJp/CO1e7OqBDvGd0Q=
+
+vue-demi@*:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.1.tgz#f7e18efbecffd11ab069d1472d7a06e319b4174c"
+  integrity sha512-QL3ny+wX8c6Xm1/EZylbgzdoDolye+VpCXRhI2hug9dJTP3OUJ3lmiKN3CsVV3mOJKwFi0nsstbgob0vG7aoIw==
 
 vue-router@4:
   version "4.0.12"
