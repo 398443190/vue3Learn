@@ -10,12 +10,12 @@
       <div class="center">
         <div class="left">
           <div class="left1">
-            <!-- <AluTotalUser
-              :today-user="20000"
-              :growth-last-day="0"
-              :growth-last-month="0"
+            <AluTotalUser
+              :today-user="0"
+              :growth-last-day="70"
+              :growth-last-month="80"
               ref="totalUser"
-            /> -->
+            />
           </div>
           <div class="left2">
           </div>
@@ -30,8 +30,10 @@
         </div>
         <div class="right">
           <div class="right-top1">
+            <AluCenterHeader />
           </div>
           <div class="right-top2">
+            <AluTestTsx />
           </div>
           <div class="right-bottom">
             <div class="right-left">
@@ -57,12 +59,12 @@
 </template>
 
 <script lang="ts" setup>
-import { getCurrentInstance, onMounted } from "vue";
 import Container from "./components/container/index.vue";
 import Header from './components/header/index.vue'
 import AluSeparator from './components/AluSeparator/index.vue'
 import AluTotalUser from './components/AluTotalUser/index.vue'
-
+import AluCenterHeader from './components/AluCenterHeader/index.vue'
+import AluTestTsx from './components/AluTestTsx/index.tsx'
 </script>
 
 <style lang="less" scoped>

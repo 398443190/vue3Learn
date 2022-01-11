@@ -14,7 +14,7 @@ const router = useRouter()
 const request = axios.create({
   // API 请求的默认前缀
   baseURL: import.meta.env.VITE_APP_BASE_URL,
-  timeout: 10000, // 请求超时时间
+  timeout: 10000 // 请求超时时间
 })
 
 // 异常拦截处理器
@@ -36,7 +36,7 @@ const errorHandler = (error: any) => {
       error.message = `请求地址出错: ${error.response.config.url}`
       ElMessage({
         message: `请求地址出错: ${error.response.config.url}`,
-        type: 'error',
+        type: 'error'
       })
       break
     case 408:

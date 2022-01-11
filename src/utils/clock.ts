@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
-function dateFilter (v:any) {
+function dateFilter(v: any) {
   let m = v.getMonth() + 1
   m = m < 10 ? '0' + m : m
   let d = v.getDate()
@@ -8,7 +8,7 @@ function dateFilter (v:any) {
   return v.getFullYear() + '-' + m + '-' + d
 }
 
-function timeFilter (v:any) {
+function timeFilter(v: any) {
   let h = v.getHours()
   h = h < 10 ? '0' + h : h
   let m = v.getMinutes()
@@ -18,7 +18,7 @@ function timeFilter (v:any) {
   return h + ':' + m + ':' + s
 }
 
-export function clock () {
+export function clock() {
   let now = new Date()
   const date = ref(dateFilter(now))
   const time = ref(timeFilter(now))

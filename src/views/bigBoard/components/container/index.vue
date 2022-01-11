@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, getCurrentInstance, onMounted, onUnmounted, nextTick,toRefs } from "vue";
+import { ref, getCurrentInstance, onMounted, onUnmounted, nextTick } from "vue";
 import { debounce } from "../../../../utils/index";
 const refName: string = "AluContainer";
 const width = ref(0);

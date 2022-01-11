@@ -1,79 +1,68 @@
 <template>
   <div class="total-user">
-    <div class="title">某某外卖用户总数</div>
+    <div class="title">某某公司员工总数</div>
     <div class="sub-title">User Total Count</div>
     <div class="total">
-      <count-to
-        :start-val="startVal"
-        :end-val="todayUser"
-        :duration="1000"
-        separator=","
-        autoplay
-      />
+      <!-- <countTo :startVal="0" :endVal="10000" :duration="3000"></countTo> -->
+      <!-- <customCountTo  :startVal="0" :endVal="10000" :duration="3000"/> -->
+      <CountToNext  :startVal="0" :endVal="10000" :duration="3000"/>
     </div>
     <div class="percent-text">
-        <span class="percent-text-1">
-          每日增长率:
-          <count-to
-            :start-val="startPercent"
-            :end-val="growthLastDay"
-            :duration="1000"
-            :decimals="2"
-            suffix="%"
-          />
-        </span>
+      <span class="percent-text-1">
+        每日增长率:
+        <count-to
+          :start-val="startPercent"
+          :end-val="growthLastDay"
+          :duration="3000"
+          :decimals="2"
+          suffix="%"
+      /></span>
       <span class="percent-text-2">
         每月增长率:
         <count-to
           :start-val="startPercent2"
           :end-val="growthLastMonth"
-          :duration="1000"
+          :duration="3000"
           :decimals="2"
           suffix="%"
         />
-        </span>
+      </span>
     </div>
     <div class="percent">
       <div class="percent-inner-wrapper">
-        <div class="percent-inner" :style="{width: `${growthLastDay}%`}" />
+        <div class="percent-inner" :style="{ width: `${growthLastDay}%` }" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
   import { ref } from 'vue'
-
-  export default {
-    name: 'totalUser',
-    props: {
-      todayUser: Number,
-      growthLastDay: {
-        type: Number,
-        default: 0
-      },
-      growthLastMonth: {
-        type: Number,
-        default: 0
-      }
+import CountToNext from '../VueCountToNext/CountToNext.vue'
+  // import { CountTo } from 'vue3-count-to'
+  const props = defineProps({
+    todayUser: {
+      type: Number,
+      default: 0
     },
-    setup(props) {
-      const startVal = ref(0)
-      const startPercent = ref(0)
-      const startPercent2 = ref(0)
-      const updateStartVal = () => {
-        startVal.value = props.todayUser
-        startPercent.value = props.growthLastDay
-        startPercent2.value = props.growthLastMonth
-      }
-      return {
-        startVal,
-        startPercent,
-        startPercent2,
-        updateStartVal
-      }
+    growthLastDay: {
+      type: Number,
+      default: 0
+    },
+    growthLastMonth: {
+      type: Number,
+      default: 0
     }
+  })
+  const startVal = ref(0)
+  const startPercent = ref(0)
+  const startPercent2 = ref(0)
+  const updateStartVal = () => {
+    startVal.value = props.todayUser
+    startPercent.value = props.growthLastDay
+    startPercent2.value = props.growthLastMonth
   }
+  updateStartVal()
 </script>
 
 <style lang="less" scoped>
@@ -81,7 +70,7 @@
     width: 100%;
     height: 100%;
     background: rgb(66, 68, 70);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
     padding: 20px 40px;
     box-sizing: border-box;
 

@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import tsConfigPaths from 'vite-tsconfig-paths'
 
 const pathResolve = (pathStr: string): string => {
   return resolve(__dirname, '.', pathStr)
@@ -48,7 +50,11 @@ export default defineConfig({
     chunkSizeWarningLimit: 800, // FIXME: 鸵鸟 = =...
   },
 
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    tsConfigPaths()
+  ],
 
   optimizeDeps: {
     include: ['element-plus/lib/locale/lang/zh-cn'],
