@@ -3,9 +3,9 @@
     <div class="title">某某公司员工总数</div>
     <div class="sub-title">User Total Count</div>
     <div class="total">
-      <!-- <countTo :startVal="0" :endVal="10000" :duration="3000"></countTo> -->
+      <countTo :startVal="0" :endVal="10000" :duration="3000"></countTo>
       <!-- <customCountTo  :startVal="0" :endVal="10000" :duration="3000"/> -->
-      <CountToNext  :startVal="0" :endVal="10000" :duration="3000"/>
+      <!-- <CountToNext  :startVal="0" :endVal="10000" :duration="3000"/> -->
     </div>
     <div class="percent-text">
       <span class="percent-text-1">

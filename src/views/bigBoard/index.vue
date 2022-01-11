@@ -18,6 +18,36 @@
             />
           </div>
           <div class="left2">
+            <AluAverageAge
+              :data="[
+                {
+                  axis: '0-20',
+                  color: 'red',
+                  startValue: 131475,
+                  value: 131456,
+                },
+                {
+                  axis: '20-40',
+                  color: 'blur',
+                  startValue: 131475,
+                  value: 131456,
+                },
+                {
+                  axis: '40-60',
+                  color: 'green',
+                  startValue: 131475,
+                  value: 131456,
+                },
+                {
+                  axis: '60-80',
+                  color: 'grey',
+                  startValue: 131475,
+                  value: 131456,
+                },
+              ]"
+              :avg-age="20"
+              ref="AluAverageAge"
+            />
           </div>
           <div class="left3">
           </div>
@@ -64,7 +94,8 @@ import Header from './components/header/index.vue'
 import AluSeparator from './components/AluSeparator/index.vue'
 import AluTotalUser from './components/AluTotalUser/index.vue'
 import AluCenterHeader from './components/AluCenterHeader/index.vue'
-import AluTestTsx from './components/AluTestTsx/index.tsx'
+import AluTestTsx from './components/AluTestTsx/index.tsx' //tsx 测试组建
+import AluAverageAge from "./components/AluAverageAge/index.vue"; // 左边第二个组件
 </script>
 
 <style lang="less" scoped>

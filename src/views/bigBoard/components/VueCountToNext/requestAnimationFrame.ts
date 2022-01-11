@@ -10,10 +10,10 @@ function useRequestAnimationFrame() {
 
   // 服务端 渲染
   if (isServer) {
-    requestAnimationFrame = function(): number {
+    requestAnimationFrame = function (): number {
       return 0
     }
-    cancelAnimationFrame = function(): void {
+    cancelAnimationFrame = function (): void {
       return
     }
   } else {
@@ -27,12 +27,15 @@ function useRequestAnimationFrame() {
       }
       prefix = prefixes[i]
       requestAnimationFrame = requestAnimationFrame || window[prefix + 'RequestAnimationFrame']
-      cancelAnimationFrame = cancelAnimationFrame || window[prefix + 'CancelAnimationFrame'] || window[prefix + 'CancelRequestAnimationFrame']
+      cancelAnimationFrame =
+        cancelAnimationFrame ||
+        window[prefix + 'CancelAnimationFrame'] ||
+        window[prefix + 'CancelRequestAnimationFrame']
     }
 
     // 如果当前浏览器不支持requestAnimationFrame和cancelAnimationFrame，则会退到setTimeout
     if (!requestAnimationFrame || !cancelAnimationFrame) {
-      requestAnimationFrame = function(callback: FrameRequestCallback) {
+      requestAnimationFrame = function (callback: FrameRequestCallback) {
         const currTime = new Date().getTime()
         // 为了使setTimteout的尽可能的接近每秒60帧的效果
         const timeToCall = Math.max(0, 16 - (currTime - lastTime))
@@ -43,7 +46,7 @@ function useRequestAnimationFrame() {
         return id
       }
 
-      cancelAnimationFrame = function(id: number) {
+      cancelAnimationFrame = function (id: number) {
         window.clearTimeout(id)
       }
     }
