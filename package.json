@@ -10,6 +10,9 @@
     "lint:fix": "eslint src --fix --ext .ts,.tsx"
   },
   "dependencies": {
+    "@jiaminghi/c-render": "0.4.3",
+    "@jiaminghi/charts": "0.2.18",
+    "@jiaminghi/data-view": "2.10.0",
     "@types/lodash": "^4.14.178",
     "@types/node": "^17.0.8",
     "axios": "^0.24.0",

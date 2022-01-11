@@ -1,105 +1,68 @@
 <template>
-  <div class="" id="alu-container" :ref="refName">
-    <slot></slot>
+  <div id="alu-screen-container" :ref="ref">
+    <template v-if="ready">
+      <slot></slot>
+    </template>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref, getCurrentInstance, onMounted, onUnmounted, nextTick } from "vue";
-import { debounce } from "../../../../utils/index";
-const refName: string = "AluContainer";
-const width = ref(0);
-const height = ref(0);
-const originWidth = ref(0);
-const originHeight = ref(0);
-let context: any, dom: any, observe: MutationObserver | null;
-const props = defineProps({
-  option: Object,
-});
-onMounted(async () => {
-  context = getCurrentInstance();
-  await initSize();
-  updateSize();
-  updateScale();
-  window.addEventListener("resize", debounce(100, onResize));
-  initMutationObserve();
-});
-const initSize = () => {
-  return new Promise<void>((resolve) => {
-    nextTick(() => {
-        console.log(context,'contextcontext')
-      dom = context.refs[refName];
-      if (props.option && props.option.width && props.option.height) {
-        width.value = props.option.width;
-        height.value = props.option.height;
-      } else {
-        width.value = dom.clientWidth;
-        height.value = dom.clientHeight;
+<script>
+  import autoResize from './autoResize.js'
+
+  export default {
+    name: 'DvFullScreenContainer',
+    mixins: [autoResize],
+    props: {
+      options: {
+        type: Object
       }
-      if (!originWidth || !originHeight) {
-        originWidth.value = window.screen.width;
-        originHeight.value = window.screen.height;
+    },
+    data() {
+      return {
+        ref: 'full-screen-container',
+        allWidth: 0,
+        allHeight: 0,
+        scale: 0,
+        datavRoot: '',
+        ready: false
       }
-      resolve();
-    });
-  });
-};
-
-const updateSize = () => {
-  if (width.value && height.value) {
-    dom.style.width = `${width.value}px`;
-    dom.style.height = `${height.value}px`;
-  } else {
-    dom.style.width = `${originWidth.value}px`;
-    dom.style.height = `${originHeight.value}px`;
+    },
+    methods: {
+      afterAutoResizeMixinInit() {
+        this.initConfig()
+        this.setAppScale()
+        this.ready = true
+      },
+      initConfig() {
+        this.allWidth = this.width || this.originalWidth
+        this.allHeight = this.height || this.originalHeight
+        if (this.width && this.height) {
+          this.dom.style.width = `${this.width}px`
+          this.dom.style.height = `${this.height}px`
+        } else {
+          this.dom.style.width = `${this.originalWidth}px`
+          this.dom.style.height = `${this.originalHeight}px`
+        }
+      },
+      setAppScale() {
+        const currentWidth = document.body.clientWidth
+        const currentHeight = document.body.clientHeight
+        this.dom.style.transform = `scale(${currentWidth / this.allWidth}, ${currentHeight / this.allHeight})`
+      },
+      onResize() {
+        this.setAppScale()
+      }
+    }
   }
-};
-
-const updateScale = () => {
-  // 获取真实的视口尺寸
-  const currentWidth = document.body.clientWidth;
-  const currentHeight = document.body.clientHeight;
-  // 获取大屏最终的宽高
-  const realWidth = width.value || originWidth.value;
-  const realHeight = height.value || originHeight.value;
-  const widthScale = currentWidth / realWidth;
-  const heightScale = currentHeight / realHeight;
-  dom.style.transform = `scale(${widthScale},${heightScale})`;
-};
-const onResize = async () => {
-  await initSize();
-  updateScale();
-  console.log("w  resize");
-};
-
-const initMutationObserve = () => {
-  const MutationObserve = window.MutationObserver;
-  observe = new MutationObserver(onResize);
-  observe.observe(dom, {
-    attributes: true,
-    attributeFilter: ["style"],
-    attributeOldValue: true,
-  });
-};
-const removeMutationObserve = () => {
-  if (observe) {
-    observe.disconnect();
-    observe.takeRecords();
-    observe = null;
-  }
-};
-onUnmounted(() => {
-  window.removeEventListener("resize", onResize);
-  removeMutationObserve();
-});
 </script>
-<style lang="less" scoped>
-#alu-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  overflow: hidden;
-  transform-origin: left top;
-}
+
+<style lang="less">
+  #alu-screen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transform-origin: left top;
+    z-index: 999;
+  }
 </style>

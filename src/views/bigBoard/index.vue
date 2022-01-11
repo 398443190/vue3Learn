@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Container  :option="{ width: 3840, height: 2160 }">
+    <AluContainer  :option="{ width: 3840, height: 2160 }">
       <div class="header">
         <Header />
       </div>
@@ -50,12 +50,24 @@
             />
           </div>
           <div class="left3">
+            <AluTotalDevice
+              :data="[
+                { value: 335, key: '直接访问' },
+                { value: 310, key: '邮件营销' },
+                { value: 234, key: '联盟广告' },
+                { value: 135, key: '视频广告' },
+                { value: 1548, key: '搜索引擎' },
+              ]"
+            />
           </div>
           <div class="left4">
+            <AluTotalGender />
           </div>
           <div class="left5">
+            <AluLineChart />
           </div>
           <div class="left6">
+            <AluBarChart />
           </div>
         </div>
         <div class="right">
@@ -63,39 +75,59 @@
             <AluCenterHeader />
           </div>
           <div class="right-top2">
-            <AluTestTsx />
+            <!-- <AluTestTsx /> -->
+            <AluCountryCategory
+              :data="['ALL', '北京', '上海', '深圳', '杭州', '南京', '武汉']"
+            />
           </div>
           <div class="right-bottom">
             <div class="right-left">
               <div class="right-left1">right-left1</div>
               <div class="right-left2">
+                <AluCountryCategory
+                  :data="['订单量', '销售额', '用户数', '退单量']"
+                  :color="['rgb(178, 209, 126)', 'rgb(116, 166, 49)']"
+                />
               </div>
               <div class="right-left3">
+                <AluAverageView />
               </div>
               <div class="right-left4">
+                <AluScheduleView />
               </div>
             </div>
             <div class="right-right">
               <div class="right-right1">
+                <AluPlanList />
               </div>
               <div class="right-right2">
+                <AluActivateUser />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </Container>
+    </AluContainer>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Container from "./components/container/index.vue";
+import AluContainer from "./components/AluContainer/index.vue";
 import Header from './components/header/index.vue'
 import AluSeparator from './components/AluSeparator/index.vue'
 import AluTotalUser from './components/AluTotalUser/index.vue'
 import AluCenterHeader from './components/AluCenterHeader/index.vue'
 import AluTestTsx from './components/AluTestTsx/index.tsx' //tsx 测试组建
 import AluAverageAge from "./components/AluAverageAge/index.vue"; // 左边第二个组件
+import AluTotalGender from "./components/AluTotalGender/index.vue"; // 左边第二个组件
+import AluTotalDevice from "./components/AluTotalDevice/index.vue"; //  左边第三个组件
+import AluLineChart from "./components/AluLineChart/index.vue"; //  左边第三个组件
+import AluBarChart from "./components/AluBarChart/index.vue"; //  左边第四个组件
+import AluCountryCategory from "./components/AluCountryCategory/index.vue"; //  左边第四个组件
+import AluAverageView from "./components/AluAverageView/index.vue";
+import AluScheduleView from "./components/AluScheduleView/index.vue"; //  左边第四个组件
+import AluPlanList from "./components/AluPlanList/index.vue";
+import AluActivateUser from "./components/AluActivateUser/index.vue";
 </script>
 
 <style lang="less" scoped>

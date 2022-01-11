@@ -16,5 +16,4 @@ app
   .use(CustomCountTo)
   .use(CountToNext)
   .use(AluEcharts)
-  .use(CountTo)
   .mount('#app')

@@ -1,25 +1,30 @@
 <template>
   <div class="top-header">
-    <img class="logo" src="https://datav.oss-cn-hangzhou.aliyuncs.com/uploads/images/54149aa06f26afcf26f42d66c999ee8b.png">
+    <img
+      class="logo"
+      src="https://datav.oss-cn-hangzhou.aliyuncs.com/uploads/images/54149aa06f26afcf26f42d66c999ee8b.png"
+    />
     <div class="logo-text">
       <div class="cn-text">数据大屏项目开发</div>
       <div class="en-text">DataV Delivery Overview of Business Data</div>
     </div>
     <div class="right-text">
-      <img class="right-logo" src="https://img.alicdn.com/tfs/TB1Kbzuq.z1gK0jSZLeXXb9kVXa-600-500.png">
-      <div class="date">{{date}}</div>
-      <div class="time">{{time}}</div>
+      <img
+        class="right-logo"
+        src="https://img.alicdn.com/tfs/TB1Kbzuq.z1gK0jSZLeXXb9kVXa-600-500.png"
+      />
+      <div class="date">{{ date }}</div>
+      <div class="time">{{ time }}</div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {onMounted, onUnmounted, ref} from 'vue'
-import {clock as useClock } from '../../../../utils/clock'
-const date= ref('2022-01-07')
-const time= ref('20:22:22')
-console.log(useClock(), 'useClock')
+  import { onMounted, onUnmounted, ref } from 'vue'
+  import { clock as useClock } from '../../../../utils/clock'
 
+  const { date, time } = useClock()
+  console.log(useClock(), 'useClock')
 </script>
 
 <style lang="less" scoped>
