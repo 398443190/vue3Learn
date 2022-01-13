@@ -3,6 +3,7 @@
     <template v-if="ready">
       <slot></slot>
     </template>
+    
   </div>
 </template>
 
