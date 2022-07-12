@@ -8,7 +8,7 @@ interface Menu {
 const headerMenu: Array<Menu> = [
   {
     index: '/study',
-    title: '归档',
+    title: '首页',
     icon: 'icon_tubiaozhizuomoban-'
   },
   {
@@ -24,6 +24,11 @@ const headerMenu: Array<Menu> = [
   {
     index: '/bigBoard',
     title: '大面板',
+    icon: 'icon_lifeon'
+  },
+  {
+    index: '/login',
+    title: '登录',
     icon: 'icon_lifeon'
   },
   {

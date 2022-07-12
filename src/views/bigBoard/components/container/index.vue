@@ -3,7 +3,6 @@
     <template v-if="ready">
       <slot></slot>
     </template>
-    
   </div>
 </template>
 
@@ -48,7 +47,9 @@
       setAppScale() {
         const currentWidth = document.body.clientWidth
         const currentHeight = document.body.clientHeight
-        this.dom.style.transform = `scale(${currentWidth / this.allWidth}, ${currentHeight / this.allHeight})`
+        this.dom.style.transform = `scale(${currentWidth / this.allWidth}, ${
+          currentHeight / this.allHeight
+        })`
       },
       onResize() {
         this.setAppScale()

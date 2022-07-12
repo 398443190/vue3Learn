@@ -10,101 +10,101 @@
       </div>
     </div>
     <div id="average-age-chart3">
-      <alu-echarts :options="options" id="barChart" />
+      <alu-echarts id="barChart" :options="options" />
     </div>
   </div>
 </template>
 
 <script>
-import { watch, onUnmounted, ref } from "vue";
-import {clock as useClock } from '../../../../utils/clock'
+  import { watch, onUnmounted, ref } from 'vue'
+  import { clock as useClock } from '../../../../utils/clock'
 
-const colors = ["rgb(209,248,139)", "rgb(115,201,245)", "rgb(124,136,146)"];
+  const colors = ['rgb(209,248,139)', 'rgb(115,201,245)', 'rgb(124,136,146)']
 
-export default {
-  name: "lineChart",
-  props: {
-    data: Object,
-  },
-  setup(props) {
-    const { time, date } = useClock();
+  export default {
+    name: 'LineChart',
+    props: {
+      data: Object
+    },
+    setup(props) {
+      const { time, date } = useClock()
 
-    const options = ref({
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "shadow",
+      const options = ref({
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
         },
-      },
-      color: ["rgb(209,248,138)", "rgba(65,65,65,.5)"],
-      grid: {
-        left: 20,
-        right: 0,
-        bottom: 30,
-        top: 20,
-      },
-      dataset: {
-        source: [
-          ["product", "2015", "2016", "2017"],
-          ["Matcha Latte", 43.3, 85.8, 93.7],
-          ["Milk Tea", 83.1, 73.4, 55.1],
-          ["Cheese Cocoa", 86.4, 65.2, 82.5],
-          ["Walnut Brownie", 72.4, 53.9, 39.1],
-        ],
-      },
-      yAxis: {
-        type: "value",
-        splitLine: {
-          lineStyle: {
-            type: "dotted",
+        color: ['rgb(209,248,138)', 'rgba(65,65,65,.5)'],
+        grid: {
+          left: 20,
+          right: 0,
+          bottom: 30,
+          top: 20
+        },
+        dataset: {
+          source: [
+            ['product', '2015', '2016', '2017'],
+            ['Matcha Latte', 43.3, 85.8, 93.7],
+            ['Milk Tea', 83.1, 73.4, 55.1],
+            ['Cheese Cocoa', 86.4, 65.2, 82.5],
+            ['Walnut Brownie', 72.4, 53.9, 39.1]
+          ]
+        },
+        yAxis: {
+          type: 'value',
+          splitLine: {
+            lineStyle: {
+              type: 'dotted'
+            }
           },
-        },
-        axisLine: {
-          onZero: false,
-          lineStyle: {
-            color: "rgb(124,136,146)",
+          axisLine: {
+            onZero: false,
+            lineStyle: {
+              color: 'rgb(124,136,146)'
+            }
           },
-        },
-        axisLabel: {
-          color: "rgb(98,105,113)",
-          fontSize: 16,
-        },
-        axisTick: { show: false },
-      },
-      xAxis: {
-        type: "category",
-        splitLine: { show: false },
-        axisTick: { show: false },
-        axisLabel: {
-          color: "rgb(98,105,113)",
-          fontSize: 16,
-        },
-        axisLine: {
-          onZero: false,
-          lineStyle: {
-            color: "rgb(124,136,146)",
+          axisLabel: {
+            color: 'rgb(98,105,113)',
+            fontSize: 16
           },
+          axisTick: { show: false }
         },
-      },
-      series: [
-        {
-          type: "bar",
-          stack: "total",
-          barWidth: 40,
+        xAxis: {
+          type: 'category',
+          splitLine: { show: false },
+          axisTick: { show: false },
+          axisLabel: {
+            color: 'rgb(98,105,113)',
+            fontSize: 16
+          },
+          axisLine: {
+            onZero: false,
+            lineStyle: {
+              color: 'rgb(124,136,146)'
+            }
+          }
         },
-        {
-          type: "bar",
-          stack: "total",
-        },
-      ],
-    });
-    return {
-      options,
-      time,
-      date,
-    };
-  },
-};
+        series: [
+          {
+            type: 'bar',
+            stack: 'total',
+            barWidth: 40
+          },
+          {
+            type: 'bar',
+            stack: 'total'
+          }
+        ]
+      })
+      return {
+        options,
+        time,
+        date
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

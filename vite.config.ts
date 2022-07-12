@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
-import vueJsx from "@vitejs/plugin-vue-jsx";
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
 const pathResolve = (pathStr: string): string => {
@@ -11,8 +11,8 @@ const pathResolve = (pathStr: string): string => {
 export default defineConfig({
   resolve: {
     alias: {
-      '@': pathResolve('./src'),
-    },
+      '@': pathResolve('./src')
+    }
   },
 
   server: {
@@ -24,39 +24,35 @@ export default defineConfig({
         changeOrigin: true,
         ws: false,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     },
     hmr: {
-      overlay: true,
-    },
+      overlay: true
+    }
   },
 
   build: {
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true,
-      },
+        drop_debugger: true
+      }
     },
 
     // TODO: 拆分
     rollupOptions: {
       output: {
-        manualChunks: {},
-      },
+        manualChunks: {}
+      }
     },
 
-    chunkSizeWarningLimit: 800, // FIXME: 鸵鸟 = =...
+    chunkSizeWarningLimit: 800 // FIXME: 鸵鸟 = =...
   },
 
-  plugins: [
-    vue(),
-    vueJsx(),
-    tsConfigPaths()
-  ],
+  plugins: [vue(), vueJsx(), tsConfigPaths()],
 
   optimizeDeps: {
-    include: ['element-plus/lib/locale/lang/zh-cn'],
-  },
+    include: ['element-plus/lib/locale/lang/zh-cn']
+  }
 })

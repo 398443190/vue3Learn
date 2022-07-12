@@ -1,3 +1,64 @@
+<script lang="ts" setup>
+  import { onUnmounted, ref, watchEffect } from 'vue'
+  import { useRoute, useRouter } from 'vue-router'
+  import headerMenu from '../../consts/headerMenu'
+  import { useUser } from '@/composables/useUser'
+
+  const { user, logout } = useUser()
+
+  /**
+   * title 相关
+   */
+  console.log(user?.id, 'user')
+  const router = useRouter()
+  // 点击 title, 返回 welcome 页
+  const handlePushHome = () => {
+    router.push('/')
+  }
+
+  /**
+   * menu 相关
+   */
+  const activeIndex = ref<string>('')
+
+  // 监听 route.path, 更新activeIndex
+  const route = useRoute()
+  const stopWatchMenu = watchEffect(() => {
+    const cur = headerMenu.find((item) => item.index === route.path)
+    activeIndex.value = cur?.index || ''
+  })
+  onUnmounted(() => {
+    stopWatchMenu()
+  })
+  // 点击 menu 菜单
+  const handleSelect = (key: string): void => {
+    const cur = headerMenu.find((item) => item.index === key)
+    if (cur?.link) {
+      window.open(cur.link, '_blank')
+      return
+    }
+    router.push(cur?.index || '/')
+  }
+
+  /**
+   * 搜索输入框
+   */
+  const searchWord = ref('')
+
+  /**
+   * switch 切换主题
+   * 默认为 dark 主题
+   */
+  const themeSwitch = ref(true)
+  const handleThemeChange = (val: boolean) => {
+    if (!val) {
+      document.documentElement.setAttribute('theme', 'light')
+    } else {
+      document.documentElement.removeAttribute('theme')
+    }
+  }
+</script>
+
 <template>
   <div class="header-layout">
     <div class="title" @click="handlePushHome">
@@ -11,23 +72,19 @@
         text-color="rgba(255, 255, 255, 0.65)"
         active-text-color="#f0f6fc"
         :default-active="activeIndex"
-        @select="handleSelect"
         :router="true"
+        @select="handleSelect"
       >
         <el-menu-item v-for="item in headerMenu" :key="item.title" :index="item.index">
           <i :class="item.icon"></i>
-          <template v-slot:title>
+          <template #title>
             <span class="menu-title">{{ item.title }}</span>
           </template>
         </el-menu-item>
       </el-menu>
     </div>
     <div class="search">
-      <el-input
-        v-model="searchWord"
-        size="mini"
-        placeholder="Search or jump to..."
-      ></el-input>
+      <el-input v-model="searchWord" size="mini" placeholder="Search or jump to..."></el-input>
     </div>
     <div class="switch">
       <el-switch
@@ -39,69 +96,21 @@
         @change="handleThemeChange"
       ></el-switch>
     </div>
+    <el-dropdown>
+      <span class="el-dropdown-link">
+        {{ user?.username }}
+        <el-icon class="el-icon--right">
+          <arrow-down />
+        </el-icon>
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item @click.prevent="logout">退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
-
-
-<script lang="ts" setup>
-
-import { defineComponent, onUnmounted, ref, watchEffect } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import headerMenu from '../../consts/headerMenu'
-
-    /**
-     * title 相关
-     */
-    const router = useRouter()
-    // 点击 title, 返回 welcome 页
-    const handlePushHome = () => {
-      router.push('/')
-    }
-
-    /**
-     * menu 相关
-     */
-    const activeIndex = ref<string>('')
-
-    // 监听 route.path, 更新activeIndex
-    const route = useRoute()
-    const stopWatchMenu = watchEffect(() => {
-      const cur = headerMenu.find((item) => item.index === route.path)
-      activeIndex.value = cur?.index || ''
-    })
-    onUnmounted(() => {
-      stopWatchMenu()
-    })
-    // 点击 menu 菜单
-    const handleSelect = (key: string): void => {
-      const cur = headerMenu.find((item) => item.index === key)
-      if (cur?.link) {
-        window.open(cur.link, '_blank')
-        return
-      }
-      router.push(cur?.index || '/')
-    }
-
-    /**
-     * 搜索输入框
-     */
-    const searchWord = ref('')
-
-    /**
-     * switch 切换主题
-     * 默认为 dark 主题
-     */
-    const themeSwitch = ref(true)
-    const handleThemeChange = (val: Boolean) => {
-      if (!val) {
-        document.documentElement.setAttribute('theme', 'light')
-      } else {
-        document.documentElement.removeAttribute('theme')
-      }
-    }
-
-</script>
-
 <style lang="less">
-@import './index.less';
+  @import './index.less';
 </style>

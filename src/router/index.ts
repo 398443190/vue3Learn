@@ -33,6 +33,11 @@ const routes: RouteRecordRaw[] = [
     path: '/bigBoard',
     name: 'BigBorad',
     component: () => import('@/views/bigBoard/index.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/index.vue')
   }
 ]
 

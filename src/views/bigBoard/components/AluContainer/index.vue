@@ -1,10 +1,10 @@
 <template>
-  <div class="" id="alu-container" :ref="refName">
+  <div id="alu-container" :ref="refName" class="">
     <template v-if="ready">
       <slot></slot>
     </template>
     <template v-else>
-    <AluLoading>数据玩命加载中。。。</AluLoading>
+      <AluLoading>数据玩命加载中。。。</AluLoading>
     </template>
   </div>
 </template>
@@ -13,7 +13,7 @@
   import { ref, getCurrentInstance, onMounted, onUnmounted, nextTick } from 'vue'
   import { debounce } from '../../../../utils/index'
   import AluLoading from '../AluLoading/index.vue'
-  const refName: string = 'AluContainer'
+  const refName = 'AluContainer'
   const width = ref(0)
   const height = ref(0)
   const originWidth = ref(0)
@@ -47,7 +47,7 @@
           width.value = dom.clientWidth
           height.value = dom.clientHeight
         }
-        if (!originWidth || !originHeight) {
+        if (!originWidth.value || !originHeight.value) {
           originWidth.value = window.screen.width
           originHeight.value = window.screen.height
         }

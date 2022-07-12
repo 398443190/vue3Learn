@@ -2,6 +2,8 @@
   display: flex;
   height: 60px;
   background-color: #161b22;
+  align-items: center;
+  padding: 0 20px;
 
   .title {
     width: 270px;
@@ -24,7 +26,6 @@
 
   .menu {
     flex: 1;
-    padding-left: 70px;
 
     .el-menu {
       border: none;
@@ -32,7 +33,7 @@
       .el-menu-item {
         height: 60px;
         line-height: 60px;
-        padding: 0 16px;
+        padding: 0 10px;
         border: none;
 
         .menu-title {
@@ -45,7 +46,7 @@
   .search {
     display: flex;
     align-items: center;
-    padding-right: 50px;
+    // padding-right: 50px;
 
     .el-input {
       width: 270px;
@@ -65,5 +66,8 @@
     .el-switch__action {
       background-color: #388bfc;
     }
+  }
+  .userInfo {
+    color: #fff;
   }
 }

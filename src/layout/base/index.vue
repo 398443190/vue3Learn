@@ -16,16 +16,16 @@
 </template>
 
 <script lang="ts" setup>
-import dayjs from "dayjs";
-import { ref } from "vue";
-import { useRoute } from "vue-router";
-import LayoutHeader from "../header/index.vue";
+  import dayjs from 'dayjs'
+  import { ref } from 'vue'
+  import { useRoute } from 'vue-router'
+  import LayoutHeader from '../header/index.vue'
 
-const route = useRoute();
-// 获取当前年份
-const curYear = ref(dayjs().year());
+  const route = useRoute()
+  // 获取当前年份
+  const curYear = ref(dayjs().year())
 </script>
 
 <style lang="less">
-@import "./index.less";
+  @import './index.less';
 </style>
